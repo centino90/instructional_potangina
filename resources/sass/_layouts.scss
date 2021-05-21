@@ -1,0 +1,366 @@
+/* Toggled State */
+.sideber-left-toggled {
+    & .app {
+        &__sidebar-left {
+            left: -224px;
+        }
+
+        &__content {
+            &-main {
+                margin-left: 0px;
+            }
+        }
+    }
+}
+
+/* Shared */
+.heading {
+    font-size: 11px;
+    font-weight: bold;
+    color: #b5b4b5;
+    display: flex;
+    align-items: center;
+}
+
+/* LAYOUT STYLE */
+.app {
+    &__subheader {
+        & #base-search {
+            border: 0px !important;
+            outline: 0px !important;
+            box-shadow: inset 0 0 0 #fff !important;
+            &:focus {
+                background-color: $body-bg;
+            }
+        }
+
+        & .navbar-brand {
+            min-width: 224px;
+            max-width: 224px;
+        }
+
+        &__toolbar-right {
+            position: relative;
+        }
+
+        &__searchresults {
+            background-color: #fff;
+            min-height: 340px;
+            max-height: 340px;
+            width: 100%;
+            overflow-y: scroll;
+            position: absolute;
+            bottom: -345px;
+            left: 0px;
+            &::-webkit-scrollbar {
+                width: 8px;
+            }
+            &::-webkit-scrollbar-track {
+                background: transparent;
+            }
+            &::-webkit-scrollbar-thumb {
+                background: rgb(192, 188, 188);
+                border-radius: 5px;
+            }
+            &::-webkit-scrollbar-thumb:hover {
+                background: rgb(151, 150, 150);
+            }
+        }
+    }
+
+    &__sidebar-left {
+        transition: all 0.1s ease-in;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 100; /* Behind the navbar */
+        padding: 0;
+        box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+        min-width: 224px;
+        max-width: 224px;
+
+        &-sticky {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 48px; /* Height of navbar */
+            height: 100vh;
+            padding-top: 8.5rem;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            &::-webkit-scrollbar {
+                width: 8px;
+            }
+            &::-webkit-scrollbar-track {
+                background: transparent;
+            }
+            &::-webkit-scrollbar-thumb {
+                background: rgba(192, 188, 188, 0.5);
+                border-radius: 5px;
+            }
+            &::-webkit-scrollbar-thumb:hover {
+                background: rgba(192, 188, 188, 0.9);
+            }
+            @media (max-width: 767.98px) {
+                padding-bottom: 50px;
+            }
+        }
+
+        &__link {
+            display: flex;
+            align-items: center;
+            & i {
+                width: 25px;
+            }
+        }
+
+        & .nav-item,
+        .nav-link,
+        & .fa,
+        & .fas,
+        & .far {
+            font-size: 13.5px !important;
+            color: #676869;
+        }
+
+        & .nav-link:hover {
+            background-color: $body-bg;
+            border-right: 2px solid rgba($primary, $alpha: 0.5);
+        }
+        & .nav-link.active {
+            background-color: $body-bg;
+            color: $primary;
+            border-right: 2px solid $primary;
+        }
+        & .nav-link.active i {
+            color: $primary;
+        }
+    }
+
+    &__content {
+        // background: red;
+        &-main {
+            transition: all 0.1s ease-in;
+            margin-left: 224px;
+            &__heading {
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+.files {
+    &__card {
+        position: relative;
+        max-width: 170px;
+        min-width: 170px;
+        height: 100%;
+        background-color: #fff !important;
+
+        &:hover {
+            border: 1px solid rgba($color: $primary, $alpha: 0.7) !important;
+        }
+        &-more {
+            // background-color: rgba($color: $dark, $alpha: .5) !important;
+        }
+        &-more:hover {
+            border: 1px solid $lightGray !important;
+        }
+
+        & .card-img {
+            background-color: $body-bg !important;
+            height: 125px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &::after {
+                font-family: "Font Awesome 5 Free";
+                content: "\f15c";
+                display: inline-block;
+                padding-left: 5px;
+                padding-top: 3px;
+                vertical-align: middle;
+                font-weight: 900;
+                font-size: 45px;
+            }
+        }
+        &[filetype="pdf"] .card-img {
+            &::after {
+                content: "\f1c1";
+                color: $danger;
+            }
+        }
+        &[filetype="docx"] .card-img {
+            &::after {
+                content: "\f1c2";
+                color: $blue;
+            }
+        }
+        &[filetype="ppt"] .card-img {
+            &::after {
+                content: "\f1c4";
+                color: $orange;
+            }
+        }
+        &[filetype="csv"] .card-img {
+            &::after {
+                content: "\f6dd";
+                color: $green;
+            }
+        }
+        &[filetype="excel"] .card-img {
+            &::after {
+                content: "\f1c3";
+                color: $teal;
+            }
+        }
+        &[filetype="png"] .card-img,
+        &[filetype="jpg"] .card-img {
+            &::after {
+                content: "\f1c5";
+                color: $purple;
+            }
+        }
+        &[filetype="mp4"] .card-img {
+            &::after {
+                content: "\f1c8";
+                color: $pink;
+            }
+        }
+        &[filetype="mp3"] .card-img {
+            &::after {
+                content: "\f1c7";
+                color: $cyan;
+            }
+        }
+        &[filetype="zip"] .card-img {
+            &::after {
+                content: "\f1c6";
+                color: $indigo;
+            }
+        }
+        &[filetype="more"] .card-img {
+            &::after {
+                content: "\f15c";
+                color: $gray;
+            }
+        }
+        &[filetype="load-more"] .card-img {
+            &::after {
+                content: "\f110";
+                color: $gray;
+            }
+        }
+        &[filetype="load-more"].loading .card-img {
+            &::after {
+                content: "\f110";
+                color: $primary;
+                animation: spin 4s cubic-bezier(0.1, 0.7, 1, 0.1) infinite;
+            }
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        }
+    }
+    &__card[important] {
+        &::before {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-top: 25px solid $warning;
+            border-bottom: 25px solid transparent;
+            border-left: 25px solid $warning;
+            border-right: 25px solid transparent;
+        }
+        &::after {
+            font-family: "Font Awesome 5 Free";
+            content: "\f005";
+            display: inline-block;
+            padding-left: 5px;
+            padding-top: 3px;
+            vertical-align: middle;
+            font-weight: 900;
+            color: #fff;
+            position: absolute;
+        }
+    }
+
+    & .options-wrapper {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+
+        &-active {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba($color: $secondary, $alpha: 0.04);
+            left: 0;
+            top: 0;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    & .preview-btn {
+        height: 100%;
+    }
+
+    & .more-options {
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.folders {
+    &__folder {
+        max-width: 210px;
+        min-width: 210px;
+        height: 100%;
+        &:hover {
+            border: 1px solid rgba($color: $primary, $alpha: 0.7) !important;
+        }
+        & .card-body {
+            align-items: start;
+            flex: 1;
+            position: relative;
+            & .card-option {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+        }
+    }
+}
+
+.options {
+    &__icon {
+        font-size: 18px;
+        color: $dark;
+    }
+}
+
+.scroller {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 75px;
+    padding: 7.5px 15px;
+    background-color: #fff;
+    font-size: 18px;
+    z-index: 400;
+}
